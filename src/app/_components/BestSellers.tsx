@@ -1,37 +1,16 @@
 import MainHeading from "@/components/main-heading";
 import Menu from "@/components/menu";
+import { db } from "@/lib/prisma";
+import { ProductWithRelations } from "@/lib/types";
 
 async function BestSellers() {
-  const bestSellers = [
-    {
-      id: crypto.randomUUID(),
-      name: "pizza",
-      description: "akdfjlakjdkljfk",
-      basePrice: 12,
-      image: "/assets/images/pizza.png",
+  const bestSellers: ProductWithRelations[] = await db.product.findMany({
+    orderBy: { order: "desc" },
+    include: {
+      size: true,
+      extra: true,
     },
-    {
-      id: crypto.randomUUID(),
-      name: "pizza",
-      description: "akdfjlakjdkljfk",
-      basePrice: 12,
-      image: "/assets/images/pizza.png",
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "pizza",
-      description: "akdfjlakjdkljfk",
-      basePrice: 12,
-      image: "/assets/images/pizza.png",
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "pizza",
-      description: "akdfjlakjdkljfk",
-      basePrice: 12,
-      image: "/assets/images/pizza.png",
-    },
-  ];
+  });
   return (
     <section>
       <div className="container">

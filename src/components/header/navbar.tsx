@@ -10,11 +10,11 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
 
   const links = [
-    { id: crypto.randomUUID(), title: "Menu", href: Routes.MENU },
-    { id: crypto.randomUUID(), title: "About", href: Routes.ABOUT },
-    { id: crypto.randomUUID(), title: "Contact", href: Routes.CONTACT },
+    { id: "1", title: "Menu", href: Routes.MENU },
+    { id: "12", title: "About", href: Routes.ABOUT },
+    { id: "13", title: "Contact", href: Routes.CONTACT },
     {
-      id: crypto.randomUUID(),
+      id: "4",
       title: "Login",
       href: `${Routes.AUTH}/${Pages.LOGIN}`,
     },
