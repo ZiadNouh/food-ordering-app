@@ -1,5 +1,5 @@
 import MenuItem from "@/components/menu/MenuItem";
-import { ProductWithRelations } from "@/lib/types";
+import { ProductWithRelations } from "@/lib/types/product";
 import { Product } from "@prisma/client";
 
 async function Menu({ items }: { items: ProductWithRelations[] }) {

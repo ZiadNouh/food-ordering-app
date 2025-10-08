@@ -1,7 +1,7 @@
 import MainHeading from "@/components/main-heading";
 import Menu from "@/components/menu";
 import { db } from "@/lib/prisma";
-import { ProductWithRelations } from "@/lib/types";
+import { ProductWithRelations } from "@/lib/types/product";
 
 async function BestSellers() {
   const bestSellers: ProductWithRelations[] = await db.product.findMany({

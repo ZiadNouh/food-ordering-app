@@ -15,7 +15,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { formatCurrency } from "@/lib/formatters";
 import { Checkbox } from "../ui/checkbox";
-import { ProductWithRelations } from "@/lib/types";
+import { ProductWithRelations } from "@/lib/types/product";
 import { db } from "@/lib/prisma";
 import { Extra, Product, Size } from "@prisma/client";
 
