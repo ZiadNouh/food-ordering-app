@@ -4,7 +4,7 @@ import { ProductWithRelations } from "@/lib/types/product";
 import { getBestSellers } from "@/server/db/products";
 
 async function BestSellers() {
-  const bestSellers: ProductWithRelations[] = await getBestSellers();
+  const bestSellers: ProductWithRelations[] = await getBestSellers(3);
   return (
     <section>
       <div className="container">
