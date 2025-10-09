@@ -1,16 +1,10 @@
 import MainHeading from "@/components/main-heading";
 import Menu from "@/components/menu";
-import { db } from "@/lib/prisma";
 import { ProductWithRelations } from "@/lib/types/product";
+import { getBestSellers } from "@/server/db/products";
 
 async function BestSellers() {
-  const bestSellers: ProductWithRelations[] = await db.product.findMany({
-    orderBy: { order: "desc" },
-    include: {
-      size: true,
-      extra: true,
-    },
-  });
+  const bestSellers: ProductWithRelations[] = await getBestSellers();
   return (
     <section>
       <div className="container">
