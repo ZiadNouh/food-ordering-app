@@ -16,7 +16,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { formatCurrency } from "@/lib/formatters";
 import { Checkbox } from "../ui/checkbox";
 import { ProductWithRelations } from "@/lib/types/product";
-import { db } from "@/lib/prisma";
 import { Extra, Product, Size } from "@prisma/client";
 
 function AddToCartButton({ item }: { item: ProductWithRelations }) {
@@ -33,7 +32,7 @@ function AddToCartButton({ item }: { item: ProductWithRelations }) {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] max-h-[80vh] overflow-y-auto">
         <DialogHeader className="flex items-center">
-          <Image src={item.imageUrl} alt={item.name} width={200} height={200} />
+          <Image src={item.image} alt={item.name} width={200} height={200} />
           <DialogTitle>{item.name}</DialogTitle>
           <DialogDescription className="text-center">
             {item.description}
@@ -42,11 +41,11 @@ function AddToCartButton({ item }: { item: ProductWithRelations }) {
         <div className="space-y-10">
           <div className="space-y-4 text-center">
             <Label htmlFor="pick-size">Pick your size</Label>
-            <PickSize sizes={item.size} item={item} />
+            <PickSize sizes={item.sizes} item={item} />
           </div>
           <div className="space-y-4 text-center">
             <Label htmlFor="add-extras">Any extras?</Label>
-            <Extras extras={item.extra} />
+            <Extras extras={item.extras} />
           </div>
         </div>
         <DialogFooter>

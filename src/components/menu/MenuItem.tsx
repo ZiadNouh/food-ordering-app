@@ -10,12 +10,7 @@ function MenuItem({ item }: { item: ProductWithRelations }) {
     group hover:bg-white hover:shadow-md hover:shadow-black/25 transition-all"
     >
       <div className="relative w-48 h-48 mx-auto">
-        <Image
-          src={item.imageUrl}
-          className="object-cover"
-          alt={item.name}
-          fill
-        />
+        <Image src={item.image} className="object-cover" alt={item.name} fill />
       </div>
       <div className="flex items-center justify-between mb-4">
         <h4 className="font-semibold text-xl my-3">{item.name}</h4>
