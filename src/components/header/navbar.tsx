@@ -1,5 +1,6 @@
 "use client";
 
+import CartButton from "@/components/header/cart-button";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Pages, Routes } from "@/constants/enums";
 import { Menu, XIcon } from "lucide-react";
@@ -60,6 +61,9 @@ export default function Navbar() {
             </Link>
           </li>
         ))}
+        <li>
+          <CartButton />
+        </li>
       </ul>
     </nav>
   );
