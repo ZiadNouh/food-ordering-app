@@ -1,9 +1,13 @@
 import Menu from "@/components/menu";
+import { Locale } from "@/i18n.config";
+import getTrans from "@/lib/translation";
 
 import { getProductsByCategory } from "@/server/db/products";
 
-async function MenuPage() {
+async function MenuPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const categories = await getProductsByCategory();
+  const { locale } = await params;
+  const translations = await getTrans(locale);
   return (
     <main>
       {categories.length > 0 ? (
@@ -18,7 +22,9 @@ async function MenuPage() {
           </section>
         ))
       ) : (
-        <p className="text-accent text-center py-20">no Products Found</p>
+        <p className="text-accent text-center py-20">
+          {translations.noProductsFound}
+        </p>
       )}
     </main>
   );

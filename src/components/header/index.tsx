@@ -1,15 +1,32 @@
+import CartButton from "@/components/header/cart-button";
+import LanguageSwitcher from "@/components/header/language-switcher";
 import Navbar from "@/components/header/navbar";
-import { Routes } from "@/constants/enums";
+import { getCurrentLocale } from "@/lib/getCurrentLocale";
+import getTrans from "@/lib/translation";
 import Link from "next/link";
-import React from "react";
 
-export default function Header() {
+async function Header() {
+  const locale = await getCurrentLocale();
+  const translations = await getTrans(locale);
   return (
-    <header>
-      <div className="container flex items-center justify-between">
-        <Link href={Routes.ROOT}>Logo</Link>
-        <Navbar />
+    <header className="py-4 md:py-6">
+      <div className="container flex items-center justify-between gap-6 lg:gap-10">
+        <Link
+          href={`/${locale}`}
+          className="text-primary font-semibold text-2xl"
+        >
+          🍕 {translations.logo}
+        </Link>
+        <Navbar translations={translations} />
+        <div className="flex items-center gap-6 flex-1 justify-end">
+          <div className="hidden lg:flex lg:items-center lg:gap-6 ">
+            <LanguageSwitcher />
+          </div>
+          <CartButton />
+        </div>
       </div>
     </header>
   );
 }
+
+export default Header;

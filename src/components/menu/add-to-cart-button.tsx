@@ -25,7 +25,7 @@ import {
   selectCartItems,
 } from "@/redux/features/cart/cartSlice";
 import { getItemQuantity } from "@/lib/cart";
-import { ProductWithRelations } from "@/lib/types/product";
+import { ProductWithRelations } from "@/types/product";
 
 function AddToCartButton({ item }: { item: ProductWithRelations }) {
   const cart = useAppSelector(selectCartItems);

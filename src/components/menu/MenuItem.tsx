@@ -1,7 +1,7 @@
 import { formatCurrency } from "@/lib/formatters";
 import Image from "next/image";
 import AddToCartButton from "@/components/menu/add-to-cart-button";
-import { ProductWithRelations } from "@/lib/types/product";
+import { ProductWithRelations } from "@/types/product";
 
 function MenuItem({ item }: { item: ProductWithRelations }) {
   return (

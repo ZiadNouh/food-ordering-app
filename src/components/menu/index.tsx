@@ -1,14 +1,19 @@
 import MenuItem from "@/components/menu/MenuItem";
-import { ProductWithRelations } from "@/lib/types/product";
-import { Product } from "@prisma/client";
+import { getCurrentLocale } from "@/lib/getCurrentLocale";
+import getTrans from "@/lib/translation";
+import { ProductWithRelations } from "@/types/product";
 
 async function Menu({ items }: { items: ProductWithRelations[] }) {
-  return (
+  const locale = await getCurrentLocale();
+  const { noProductsFound } = await getTrans(locale);
+  return items.length > 0 ? (
     <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      {items.map((item: ProductWithRelations) => (
+      {items.map((item) => (
         <MenuItem key={item.id} item={item} />
       ))}
     </ul>
+  ) : (
+    <p className="text-accent text-center">{noProductsFound}</p>
   );
 }
 
