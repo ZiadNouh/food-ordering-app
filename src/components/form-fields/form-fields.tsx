@@ -1,7 +1,5 @@
 import { InputTypes } from "@/constants/enums";
-
 import { IFormField } from "@/types/app";
-
 import TextField from "@/components/form-fields/text-field";
 import PasswordField from "@/components/form-fields/password-field";
 import { ValidationErrors } from "@/validations/auth";
