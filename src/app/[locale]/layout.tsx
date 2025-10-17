@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ReduxProvider from "@/providers/ReduxProvider";
 import { Languages } from "@/constants/enums";
+import { Toaster } from "@/components/ui/sonner";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className}  antialiased`}>
         <ReduxProvider>
+          <Toaster />
           <Header />
           {children}
           <Footer />
